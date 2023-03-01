@@ -8,7 +8,7 @@ function getRandomSortedArray(length, min = 0, max = 9) {
     return arr.sort((a, b) => a - b);
 }
 
-function mergeTwoSortedArrays(arr1, arr2) {
+function mergeTwoSortedArrays1(arr1, arr2) {
     const len1 = arr1.length;
     const len2 = arr2.length;
     const result = [];
@@ -41,11 +41,36 @@ function mergeTwoSortedArrays(arr1, arr2) {
     return result;
 }
 
+function mergeTwoSortedArrays2(arr1, arr2) {
+    const len1 = arr1.length;
+    const len2 = arr2.length;
+
+    for (let i = 0; i < len1; i++) {
+        if (arr1[i] > arr2[0]) {
+            const temp = arr1[i];
+            arr1[i] = arr2[0];
+            arr2[0] = temp;
+            
+            const firstItem = arr2[0];
+            let k = 1;
+            while (k < len2 && arr2[k] < firstItem) {
+                arr2[k - 1] = arr2[k];
+                k++;
+            }
+            arr2[k - 1] = firstItem;
+        }
+    }
+
+    return arr1.concat(arr2);
+}
+
 const arr1 = getRandomSortedArray(7);
 const arr2 = getRandomSortedArray(5, -3, 7);
 console.log("arr1 =", arr1);
 console.log("arr2 =", arr2);
 console.log("");
 
-const res = mergeTwoSortedArrays(arr1, arr2);
-console.log("result =", res);
+const res1 = mergeTwoSortedArrays1(arr1, arr2);
+const res2 = mergeTwoSortedArrays2(arr1, arr2);
+console.log("result1 =", res1);
+console.log("result2 =", res2);
