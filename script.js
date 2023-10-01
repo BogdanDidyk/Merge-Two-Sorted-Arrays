@@ -1,8 +1,12 @@
+function getRandomInteger(min = 0, max = 9) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function getRandomSortedArray(length, min = 0, max = 9) {
     const arr = [];
 
     for (let i = 0; i < length; i++) {
-        arr[i] = Math.floor(Math.random() * (max - min + 1)) + min;
+        arr[i] = getRandomInteger(min, max);
     }
 
     return arr.sort((a, b) => a - b);
