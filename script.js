@@ -24,19 +24,10 @@ function mergeTwoSortedArrays1(arr1, arr2) {
         }
     }
 
-    if (ind1 == len1) {
-        for (ind2; ind2 < len2; ind2++) {
-            result.push(arr2[ind2]);
-        }
-    }
-    
-    if (ind2 == len2) {
-        for (ind1; ind1 < len1; ind1++) {
-            result.push(arr1[ind1]);
-        }
-    }
+    const restItemsArr1 = arr1.slice(ind1);
+    const restItemsArr2 = arr2.slice(ind2); 
 
-    return result;
+    return result.concat(restItemsArr1).concat(restItemsArr2);
 }
 
 function mergeTwoSortedArrays2(arr1, arr2) {
