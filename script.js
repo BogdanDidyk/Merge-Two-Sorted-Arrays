@@ -3,7 +3,7 @@ function getRandomInteger(min = 0, max = 9) {
 }
 
 function getRandomArray(length, min, max) {
-    return Array.from({length: length}, () => getRandomInteger(min, max));
+    return Array.from({length}, () => getRandomInteger(min, max));
 }
 
 function mergeTwoSortedArrays1(arr1, arr2) {
