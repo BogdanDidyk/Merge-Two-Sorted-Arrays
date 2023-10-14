@@ -2,7 +2,7 @@ function getRandomInteger(min = 0, max = 9) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-function getRandomArray(length, min, max) {
+function getRandomIntegerArray(length, min, max) {
     return Array.from({length}, () => getRandomInteger(min, max));
 }
 
@@ -53,8 +53,8 @@ function mergeTwoSortedArrays2(arr1, arr2) {
     return arr1.concat(arr2);
 }
 
-const arr1 = getRandomArray(7).sort((a, b) => a - b);
-const arr2 = getRandomArray(5, -3, 7).sort((a, b) => a - b);
+const arr1 = getRandomIntegerArray(7).sort((a, b) => a - b);
+const arr2 = getRandomIntegerArray(5, -3, 7).sort((a, b) => a - b);
 console.log("arr1 =", arr1);
 console.log("arr2 =", arr2);
 console.log("");
